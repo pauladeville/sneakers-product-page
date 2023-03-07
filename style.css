@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kumbh Sans", serif;
+}
+
+nav.desktop {
+  display: none;
+}
+
+nav.mobile {
+  background-color: bisque;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 25px;
+}
+
+nav.mobile .left .links {
+  display: none;
+}
+
+.hamburger {
+  display: flex;
+  align-items: center;
+}
+
+.logo {
+  margin-left: 15px;
+}
+
+nav .right img {
+  width: 25px;
+}
+nav .right img:last-child {
+  margin-left: 20px;
+}
+
+nav .left, nav .right {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+p.description {
+  font-size: 16px;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin: 30px;
+}
+
+.attribution a {
+  color: hsl(26deg, 100%, 55%);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+/*# sourceMappingURL=style.css.map */
