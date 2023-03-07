@@ -32,6 +32,25 @@
         <img class="open-cart" src="images/image-avatar.png" alt="" />
       </div>
     </nav>
+    
+    <div class="cart">
+      <div class="cart-title">
+        <p>Cart</p>
+      </div>
+      <div class="cart-content">
+        <p class="cart-content-empty">Your cart is empty.</p>
+        <div class="cart-content-full hidden">
+          <div class="cart-content-full-row">
+            <img id="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="">
+            <p id="cart-description">Fall Limited Edition Sneakers <span id="cart-amount"></span><span id="cart-total"></span></p>
+            <img id="delete" src="images/icon-delete.svg" alt="">
+          </div>
+          <div id="checkout">
+            Checkout
+          </div>
+        </div>
+      </div>
+    </div>
 
     <div class="gallery">
       <div class="gallery-main">
@@ -72,9 +91,9 @@
       </div>
   
       <div class="select">
-        <img src="images/icon-minus.svg" alt="" />
-        <div class="select-number">0</div>
-        <img src="images/icon-plus.svg" alt="" />
+        <img id="minus" src="images/icon-minus.svg" alt="" />
+        <div class="select-number"></div>
+        <img id='plus' src="images/icon-plus.svg" alt="" />
       </div>
   
       <div class="cta">
