@@ -5,6 +5,7 @@ $dark-grayish-blue: hsl(219, 9%, 45%);
 $grayish-blue: hsl(220, 14%, 75%);
 $light-grayish-blue: hsl(223, 64%, 98%);
 $white: hsl(0, 0%, 100%);
+$black: #000;
 $lightbox-background: hsl(0, 0%, 25%);
 
 //RESET
@@ -15,47 +16,59 @@ $lightbox-background: hsl(0, 0%, 25%);
   font-family: "Kumbh Sans", serif;
 }
 
-nav.desktop {
-  display: none;
-}
-nav.mobile {
-  background-color: bisque;
+//DISPOSITION MENU
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
 }
-
-//MENU HAMBURGER
-nav.mobile .left .links {
-  display: none;
-}
-.hamburger{
-  display: flex;
-  align-items: center;
-}
-
-.logo{
+.logo {
   margin-left: 15px;
 }
-
 nav .right {
-  img{
+  img {
     width: 25px;
-    &:last-child{
+    &:last-child {
       margin-left: 20px;
     }
   }
 }
-
-nav .left, nav .right{
+nav .left, nav .right {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
 
-
+//MENU HAMBURGER
+#hamburger-menu {
+  background-color: $white;
+  position: fixed;
+  top: 0;
+  left: -70%;
+  width: 70%;
+  height: 100%;
+  padding: 30px;
+  transition: 500ms ease-in-out;
+  &.open {
+    left: 0;
+  }
+  a {
+    font-weight: 700;
+    text-decoration: none;
+    color: $black;
+    display: block;
+    margin-bottom: 25px;
+  }
+}
+#hamburger-open {
+  cursor: pointer;
+}
+#hamburger-close {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
 
 p.description {
   font-size: 16px;
@@ -69,4 +82,39 @@ p.description {
   color: $orange;
   font-weight: 700;
   text-decoration: none;
+}
+
+//GALLERY
+.arrows-container{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+.arrow{
+  background-color: $white;
+  display: inline-block;
+  border-radius: 500px;
+  img{
+    width: 10px;
+    margin: 13px 16px 10px 16px;
+  }
+  &-next{
+  }
+  &-previous{
+  }
+}
+.gallery-main {
+  position: relative;
+  .main-img{
+    width: 100%;
+    &.hidden {
+      display: none;
+    }
+  }
 }

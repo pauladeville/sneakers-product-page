@@ -5,25 +5,11 @@
   font-family: "Kumbh Sans", serif;
 }
 
-nav.desktop {
-  display: none;
-}
-
-nav.mobile {
-  background-color: bisque;
+nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
-}
-
-nav.mobile .left .links {
-  display: none;
-}
-
-.hamburger {
-  display: flex;
-  align-items: center;
 }
 
 .logo {
@@ -44,6 +30,36 @@ nav .left, nav .right {
   align-items: center;
 }
 
+#hamburger-menu {
+  background-color: hsl(0deg, 0%, 100%);
+  position: fixed;
+  top: 0;
+  left: -70%;
+  width: 70%;
+  height: 100%;
+  padding: 30px;
+  transition: 500ms ease-in-out;
+}
+#hamburger-menu.open {
+  left: 0;
+}
+#hamburger-menu a {
+  font-weight: 700;
+  text-decoration: none;
+  color: #000;
+  display: block;
+  margin-bottom: 25px;
+}
+
+#hamburger-open {
+  cursor: pointer;
+}
+
+#hamburger-close {
+  margin-bottom: 40px;
+  cursor: pointer;
+}
+
 p.description {
   font-size: 16px;
 }
@@ -58,6 +74,37 @@ p.description {
   color: hsl(26deg, 100%, 55%);
   font-weight: 700;
   text-decoration: none;
+}
+
+.arrows-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+}
+
+.arrow {
+  background-color: hsl(0deg, 0%, 100%);
+  display: inline-block;
+  border-radius: 500px;
+}
+.arrow img {
+  width: 10px;
+  margin: 13px 16px 10px 16px;
+}
+.gallery-main {
+  position: relative;
+}
+.gallery-main .main-img {
+  width: 100%;
+}
+.gallery-main .main-img.hidden {
+  display: none;
 }
 
 /*# sourceMappingURL=style.css.map */
