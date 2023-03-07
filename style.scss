@@ -14,6 +14,7 @@ $lightbox-background: hsl(0, 0%, 25%);
   padding: 0;
   box-sizing: border-box;
   font-family: "Kumbh Sans", serif;
+  color: $very-dark-blue;
 }
 
 //DISPOSITION MENU
@@ -116,5 +117,56 @@ p.description {
     &.hidden {
       display: none;
     }
+  }
+}
+.gallery-mini{
+  display: none;
+}
+
+//DESCRIPTIF PRODUIT
+.text-container{
+  padding: 30px;
+}
+h3{
+  color: $orange;
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+h2{
+  font-size: 28px;
+  margin: 15px 0;
+}
+.description{
+  color: $dark-grayish-blue;
+  line-height: 24px;
+}
+
+//PRIX
+.price{
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  &-now{
+    display: flex;
+    align-items: center;
+    &-total{
+      font-size: 30px;
+      font-weight: 700;
+      margin-right: 25px;
+    };
+    &-discount{
+      background-color: $pale-orange;
+      color: $orange;
+      font-weight: 700;
+      padding: 5px 10px;
+    }
+  };
+  &-before{
+    font-weight: 700;
+    text-decoration: line-through;
+    color: $grayish-blue;
+    font-size: 18px;
   }
 }

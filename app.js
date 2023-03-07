@@ -11,29 +11,33 @@ closeMenu.addEventListener('click', () => {
 
 //IMAGE GALLERY
 let mains = document.querySelectorAll('.main-img');
-let minis = document.querySelectorAll('.gallery-mini img');
 let index = 0;
-for(mini of minis){
-  // mini.addEventListener('click', (event) => {
-  //   let string = event.target.src;
-  //   let newSrc = string.replace('-thumbnail', '')
-  //   mainImg.src = newSrc;
-  // })
-
-};
+function changeMain(n) {
+  mains[index].classList.add('hidden');
+  index = n;
+  mains[index].classList.remove('hidden');  
+}
 let next = document.querySelector('.arrow-next');
 let previous = document.querySelector('.arrow-previous');
 next.addEventListener('click', () => {
-  console.log(mains.length -1);
-  console.log(mains);
-  
-
-  if(index <= mains.length-1) {
+  if(index < (mains.length -1)) {
     mains[index].classList.add('hidden');
     index++;
     mains[index].classList.remove('hidden');  
-    console.log(index);
   } else {
-    console.log('stop')
+    mains[index].classList.add('hidden');
+    index = 0;
+    mains[index].classList.remove('hidden');  
+  }
+});
+previous.addEventListener('click', () => {
+  if(index != 0) {
+    mains[index].classList.add('hidden');
+    index--;
+    mains[index].classList.remove('hidden');  
+  } else {
+    mains[index].classList.add('hidden');
+    index = mains.length -1;
+    mains[index].classList.remove('hidden');  
   }
 });

@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Kumbh Sans", serif;
+  color: hsl(220deg, 13%, 13%);
 }
 
 nav {
@@ -105,6 +106,59 @@ p.description {
 }
 .gallery-main .main-img.hidden {
   display: none;
+}
+
+.gallery-mini {
+  display: none;
+}
+
+.text-container {
+  padding: 30px;
+}
+
+h3 {
+  color: hsl(26deg, 100%, 55%);
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+h2 {
+  font-size: 28px;
+  margin: 15px 0;
+}
+
+.description {
+  color: hsl(219deg, 9%, 45%);
+  line-height: 24px;
+}
+
+.price {
+  margin: 25px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.price-now {
+  display: flex;
+  align-items: center;
+}
+.price-now-total {
+  font-size: 30px;
+  font-weight: 700;
+  margin-right: 25px;
+}
+.price-now-discount {
+  background-color: hsl(25deg, 100%, 94%);
+  color: hsl(26deg, 100%, 55%);
+  font-weight: 700;
+  padding: 5px 10px;
+}
+.price-before {
+  font-weight: 700;
+  text-decoration: line-through;
+  color: hsl(220deg, 14%, 75%);
+  font-size: 18px;
 }
 
 /*# sourceMappingURL=style.css.map */
