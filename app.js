@@ -47,27 +47,23 @@ let cartButtons = document.querySelectorAll(".open-cart");
 let cart = document.querySelector(".cart");
 for (cartButton of cartButtons) {
   cartButton.addEventListener("click", () => {
-    if (cart.classList.contains("visible")) {
-      cart.classList.remove("visible");
-    } else {
+    if (!cart.classList.contains("visible") && !cart.classList.contains('clickedAway')) {
       cart.classList.add("visible");
       updateCart();
-      document.body.addEventListener('click', (event)=> {
-        //détecter si je clique en dehors du panier
-        if(!cart.contains(event.target)){
-          cart.classList.remove("visible");
-          console.log('bim')
-        }  
-      })
-    
     }
   });
-};
-
-while(cart.classList.contains('visible')){
 }
 
-
+document.addEventListener("mousedown", (event) => {
+  //détecter si je clique en dehors du panier
+    if (!cart.contains(event.target) &&  cart.classList.contains("visible")) {
+      cart.classList.remove("visible");
+      cart.classList.add('clickedAway');
+      setInterval(() =>{
+        cart.classList.remove('clickedAway');
+      }, 500)
+    }  
+});
 
 //CHOSE AMOUNT
 let selectNumber = 0;
@@ -95,6 +91,7 @@ function addToCart(amountOfProduct) {
     updateCart();
     selectNumber = 0;
     showSelectedNumber();
+    createBubble(localStorage.amount);
   } else {
     let actualStorage = localStorage.getItem("amount");
     amountOfProduct = parseInt(amountOfProduct) + parseInt(actualStorage);
@@ -103,6 +100,7 @@ function addToCart(amountOfProduct) {
     updateCart();
     selectNumber = 0;
     showSelectedNumber();
+    createBubble(localStorage.amount);
   }
 }
 addToCartButton.addEventListener("click", () => {
@@ -116,14 +114,12 @@ let deleteCart = document.querySelector("#delete");
 let emptyCartMsg = document.querySelector(".cart-content-empty");
 let fullCartRow = document.querySelector(".cart-content-full");
 function updateCart() {
-  emptyCartMsg.classList.add("hidden");
-  fullCartRow.classList.remove("hidden");
-  cart.classList.add("visible");
   if (localStorage.amount) {
+    emptyCartMsg.classList.add("hidden");
+    fullCartRow.classList.remove("hidden");  
     cartAmount.textContent = "x" + localStorage.amount;
-    cartTotal.textContent = (parseInt(localStorage.amount)*125) + ' €';
+    cartTotal.textContent = parseInt(localStorage.amount) * 125 + " €";
   } else {
-    cartAmount.textContent = 0;
     emptyCartMsg.classList.remove("hidden");
     fullCartRow.classList.add("hidden");
   }
@@ -131,6 +127,22 @@ function updateCart() {
 deleteCart.addEventListener("click", () => {
   localStorage.clear();
   updateCart();
+  deleteBubble();
 });
 
-//MASQUER PANIER QUAND SCROLL OU CLICK SUR LA PAGE
+//CREATE BUBBLE
+let cartBubble = document.createElement('div');
+function createBubble(){
+  document.querySelector('.right').prepend(cartBubble);
+  cartBubble.classList.add('cart-bubble');
+  cartBubble.textContent = localStorage.amount;  
+};
+function deleteBubble(){
+  cartBubble.remove();
+};
+
+addEventListener('load', ()=>{
+  if(localStorage.amount){
+    createBubble();
+  }
+});

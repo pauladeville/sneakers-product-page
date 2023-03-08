@@ -6,15 +6,34 @@
   color: hsl(220deg, 13%, 13%);
 }
 
+@media screen and (min-width: 900px) {
+  body {
+    padding: 20px 10%;
+  }
+}
+
 nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 25px;
 }
+@media screen and (min-width: 900px) {
+  nav {
+    padding: 0 0 0 0;
+    border-bottom: solid 1px hsl(220deg, 14%, 75%);
+  }
+}
 
 .logo {
   margin-left: 15px;
+}
+@media screen and (min-width: 900px) {
+  .logo {
+    margin-left: 0;
+    margin-right: 50px;
+    width: 180px;
+  }
 }
 
 nav .right img {
@@ -23,12 +42,39 @@ nav .right img {
 nav .right img:last-child {
   margin-left: 20px;
 }
+@media screen and (min-width: 900px) {
+  nav .right img {
+    width: 30px;
+  }
+  nav .right img:last-child {
+    width: 60px;
+    margin-left: 50px;
+  }
+}
 
-nav .left, nav .right {
+nav .left,
+nav .right {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+
+.desktop-menu {
+  display: none;
+}
+@media screen and (min-width: 900px) {
+  .desktop-menu {
+    display: flex;
+  }
+}
+.desktop-menu a {
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+  padding: 60px 15px;
+  color: hsl(219deg, 9%, 45%);
+  font-size: 18px;
 }
 
 #hamburger-menu {
@@ -41,6 +87,11 @@ nav .left, nav .right {
   height: 100%;
   padding: 30px;
   transition: 500ms ease-in-out;
+}
+@media screen and (min-width: 900px) {
+  #hamburger-menu {
+    display: none;
+  }
 }
 #hamburger-menu.open {
   left: 0;
@@ -60,26 +111,35 @@ nav .left, nav .right {
 #hamburger-open {
   cursor: pointer;
 }
+@media screen and (min-width: 900px) {
+  #hamburger-open {
+    display: none;
+  }
+}
 
 #hamburger-close {
   margin-bottom: 40px;
   cursor: pointer;
 }
-
-p.description {
-  font-size: 16px;
+@media screen and (min-width: 900px) {
+  #hamburger-close {
+    display: none;
+  }
 }
 
-.attribution {
-  font-size: 11px;
-  text-align: center;
-  margin: 30px;
+@media screen and (min-width: 900px) {
+  section {
+    display: flex;
+    align-items: center;
+    padding: 10% 5%;
+  }
 }
 
-.attribution a {
-  color: hsl(26deg, 100%, 55%);
-  font-weight: 700;
-  text-decoration: none;
+@media screen and (min-width: 900px) {
+  .gallery {
+    padding: 0 6% 0 0;
+    flex: 1;
+  }
 }
 
 .arrows-container {
@@ -93,6 +153,11 @@ p.description {
   -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
+@media screen and (min-width: 900px) {
+  .arrows-container {
+    display: none;
+  }
+}
 
 .arrow {
   background-color: hsl(0deg, 0%, 100%);
@@ -103,8 +168,8 @@ p.description {
   width: 10px;
   margin: 13px 16px 10px 16px;
 }
+
 .gallery-main {
-  z-index: 8 !important;
   position: relative;
 }
 .gallery-main .main-img {
@@ -113,13 +178,52 @@ p.description {
 .gallery-main .main-img.hidden {
   display: none;
 }
+@media screen and (min-width: 900px) {
+  .gallery-main {
+    position: static;
+  }
+}
 
 .gallery-mini {
   display: none;
+  margin-top: 8%;
+  justify-content: space-between;
+  align-items: center;
+}
+.gallery-mini img {
+  width: 100%;
+  margin-right: 5%;
+  border: hsl(0deg, 0%, 100%) 3px solid;
+  filter: none;
+  transition: all 200ms ease-in-out;
+}
+.gallery-mini img:last-child {
+  margin-right: 0;
+}
+.gallery-mini img:hover {
+  border: hsl(26deg, 100%, 55%) 3px solid;
+  filter: opacity(40%);
+}
+@media screen and (min-width: 900px) {
+  .gallery-mini {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 900px) {
+  .gallery img {
+    border-radius: 20px;
+  }
 }
 
 .text-container {
   padding: 30px;
+}
+@media screen and (min-width: 900px) {
+  .text-container {
+    padding: 0 0 0 6%;
+    flex: 1;
+  }
 }
 
 h3 {
@@ -128,37 +232,65 @@ h3 {
   font-size: 12px;
   letter-spacing: 2px;
 }
+@media screen and (min-width: 900px) {
+  h3 {
+    font-size: 14px;
+  }
+}
 
 h2 {
   font-size: 28px;
-  margin: 15px 0;
+  margin: 30px 0;
+}
+@media screen and (min-width: 900px) {
+  h2 {
+    font-size: 45px;
+  }
 }
 
 .description {
   color: hsl(219deg, 9%, 45%);
   line-height: 24px;
+  font-size: 16px;
 }
 
 .price {
-  margin: 25px 0;
+  margin: 35px 0;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
+@media screen and (min-width: 900px) {
+  .price {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
 .price-now {
   display: flex;
   align-items: center;
+}
+@media screen and (min-width: 900px) {
+  .price-now {
+    margin-bottom: 10px;
+  }
 }
 .price-now-total {
   font-size: 30px;
   font-weight: 700;
   margin-right: 25px;
 }
+@media screen and (min-width: 900px) {
+  .price-now-total {
+    font-size: 35px;
+  }
+}
 .price-now-discount {
   background-color: hsl(25deg, 100%, 94%);
   color: hsl(26deg, 100%, 55%);
   font-weight: 700;
   padding: 5px 10px;
+  border-radius: 10px;
 }
 .price-before {
   font-weight: 700;
@@ -167,7 +299,8 @@ h2 {
   font-size: 18px;
 }
 
-.select, .cta {
+.select,
+.cta {
   display: flex;
   align-items: center;
   border-radius: 10px;
@@ -185,6 +318,11 @@ h2 {
 .select img {
   cursor: pointer;
   padding: 15px;
+  filter: none;
+  transition: filter 200ms ease-in-out;
+}
+.select img:hover {
+  filter: opacity(50%);
 }
 
 .cta {
@@ -193,6 +331,11 @@ h2 {
   background-color: hsl(26deg, 100%, 55%);
   justify-content: center;
   box-shadow: 0 20px 15px hsl(25deg, 100%, 94%);
+  filter: none;
+  transition: filter 200ms ease-in-out;
+}
+.cta:hover {
+  filter: opacity(50%);
 }
 .cta img {
   margin-right: 15px;
@@ -203,13 +346,58 @@ h2 {
   color: hsl(0deg, 0%, 100%);
 }
 
+@media screen and (min-width: 900px) {
+  .cta-buttons-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .cta-buttons-container .select {
+    width: 50%;
+    margin: 0 20px 0 0;
+  }
+  .cta-buttons-container .cta {
+    width: 100%;
+  }
+}
+
 .open-cart {
   cursor: pointer;
+}
+.open-cart.cart-icon {
+  filter: none;
+  transition: filter 300ms ease-in-out;
+}
+.open-cart.cart-icon:hover {
+  filter: brightness(0%);
+}
+.open-cart.avatar {
+  border-radius: 500px;
+  border: solid 2px hsl(0deg, 0%, 100%);
+  transition: border 200ms ease-in-out;
+}
+.open-cart.avatar:hover {
+  border: solid 2px hsl(26deg, 100%, 55%);
+}
+
+.cart-bubble {
+  z-index: 8;
+  position: relative;
+  right: -40px;
+  top: -10px;
+  background-color: hsl(26deg, 100%, 55%);
+  width: 22px;
+  height: 15px;
+  border-radius: 50px;
+  color: hsl(0deg, 0%, 100%);
+  font-weight: 700;
+  font-size: 12px;
+  text-align: center;
 }
 
 .cart {
   z-index: 9;
-  position: fixed;
+  position: absolute;
   left: 50%;
   transform: translateX(-50%);
   top: -100%;
@@ -217,7 +405,14 @@ h2 {
   background-color: hsl(0deg, 0%, 100%);
   border-radius: 10px;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2431372549);
-  transition: top 200ms ease-in-out;
+  transition: top 600ms ease-in-out;
+}
+@media screen and (min-width: 900px) {
+  .cart {
+    width: 30%;
+    transform: none;
+    left: 65%;
+  }
 }
 .cart-title {
   padding: 25px;
@@ -246,7 +441,7 @@ h2 {
   border-radius: 5px;
 }
 .cart-content-full-row p {
-  margin: 0 15px;
+  margin: 0 25px;
 }
 .cart-content-full-row #cart-total {
   padding-left: 6px;
@@ -270,9 +465,26 @@ h2 {
 .cart.visible {
   top: 85px;
 }
+@media screen and (min-width: 900px) {
+  .cart.visible {
+    top: 150px;
+  }
+}
 
 #delete {
   cursor: pointer;
+}
+
+.attribution {
+  font-size: 11px;
+  text-align: center;
+  margin: 30px;
+}
+
+.attribution a {
+  color: hsl(26deg, 100%, 55%);
+  font-weight: 700;
+  text-decoration: none;
 }
 
 /*# sourceMappingURL=style.css.map */

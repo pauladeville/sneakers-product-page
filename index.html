@@ -26,13 +26,20 @@
           <a href="#">About</a>
           <a href="#">Contact</a>
         </div>
+        <div class="desktop-menu">
+          <a href="#">Collections</a>
+          <a href="#">Men</a>
+          <a href="#">Women</a>
+          <a href="#">About</a>
+          <a href="#">Contact</a>
+        </div>
       </div>
       <div class="right">
-        <img class="open-cart" src="images/icon-cart.svg" alt="" />
-        <img class="open-cart" src="images/image-avatar.png" alt="" />
+        <img class="open-cart cart-icon" src="images/icon-cart.svg" alt="" />
+        <img class="open-cart avatar" id="avatar" src="images/image-avatar.png" alt="" />
       </div>
     </nav>
-    
+
     <div class="cart">
       <div class="cart-title">
         <p>Cart</p>
@@ -41,72 +48,73 @@
         <p class="cart-content-empty">Your cart is empty.</p>
         <div class="cart-content-full hidden">
           <div class="cart-content-full-row">
-            <img id="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="">
+            <img id="cart-thumbnail" src="images/image-product-1-thumbnail.jpg" alt="" />
             <p id="cart-description">Fall Limited Edition Sneakers <span id="cart-amount"></span><span id="cart-total"></span></p>
-            <img id="delete" src="images/icon-delete.svg" alt="">
+            <img id="delete" src="images/icon-delete.svg" alt="" />
           </div>
-          <div id="checkout">
-            Checkout
-          </div>
+          <div id="checkout">Checkout</div>
         </div>
       </div>
     </div>
 
-    <div class="gallery">
-      <div class="gallery-main">
-        <img class="main-img" src="images/image-product-1.jpg" alt="" />
-        <img class="main-img hidden" src="images/image-product-2.jpg" alt="" />
-        <img class="main-img hidden" src="images/image-product-3.jpg" alt="" />
-        <img class="main-img hidden" src="images/image-product-4.jpg" alt="" />
-        <div class="arrows-container">
-          <div class="arrow arrow-previous">
-            <img src="images/icon-previous.svg" alt="" />
+    <section>
+      <div class="gallery">
+        <div class="gallery-main">
+          <img class="main-img" src="images/image-product-1.jpg" alt="" />
+          <img class="main-img hidden" src="images/image-product-2.jpg" alt="" />
+          <img class="main-img hidden" src="images/image-product-3.jpg" alt="" />
+          <img class="main-img hidden" src="images/image-product-4.jpg" alt="" />
+          <div class="arrows-container">
+            <div class="arrow arrow-previous">
+              <img src="images/icon-previous.svg" alt="" />
+            </div>
+            <div class="arrow arrow-next">
+              <img src="images/icon-next.svg" alt="" />
+            </div>
           </div>
-          <div class="arrow arrow-next">
-            <img src="images/icon-next.svg" alt="" />
+        </div>
+        <div class="gallery-mini">
+          <img onclick="changeMain(0)" src="images/image-product-1-thumbnail.jpg" alt="" />
+          <img onclick="changeMain(1)" src="images/image-product-2-thumbnail.jpg" alt="" />
+          <img onclick="changeMain(2)" src="images/image-product-3-thumbnail.jpg" alt="" />
+          <img onclick="changeMain(3)" src="images/image-product-4-thumbnail.jpg" alt="" />
+        </div>
+      </div>
+
+      <div class="text-container">
+
+        <h3>Sneaker Company</h3>
+        <h2>Fall Limited Edition Sneakers</h2>
+        <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
+
+        <div class="price">
+          <div class="price-now">
+            <div class="price-now-total">125 €</div>
+            <div class="price-now-discount">50%</div>
+          </div>
+          <div class="price-before">250 €</div>
+        </div>
+
+        <div class="cta-buttons-container">
+          <div class="select">
+            <img id="minus" src="images/icon-minus.svg" alt="" />
+            <div class="select-number"></div>
+            <img id="plus" src="images/icon-plus.svg" alt="" />
+          </div>
+
+          <div class="cta">
+            <img src="images/icon-cart.svg" alt="" />
+            <p>Add to cart</p>
           </div>
         </div>
       </div>
-      <div class="gallery-mini">
-        <img onclick="changeMain(0)" src="images/image-product-1-thumbnail.jpg" alt="" />
-        <img onclick="changeMain(1)" src="images/image-product-2-thumbnail.jpg" alt="" />
-        <img onclick="changeMain(2)" src="images/image-product-3-thumbnail.jpg" alt="" />
-        <img onclick="changeMain(3)" src="images/image-product-4-thumbnail.jpg" alt="" />
-      </div>
+    </section>
+
+    <div class="attribution">
+      Codé par <a href="https://paulinedesmarets.fr/">Pauline Desmarets</a><br />
+      Design proposé par Frontend Mentor
     </div>
 
-    <div class="text-container">
-      <h3>Sneaker Company</h3>
-
-      <h2>Fall Limited Edition Sneakers</h2>
-  
-      <p class="description">These low-profile sneakers are your perfect casual wear companion. Featuring a durable rubber outer sole, they’ll withstand everything the weather can offer.</p>
-  
-      <div class="price">
-        <div class="price-now">
-          <div class="price-now-total">125 €</div>
-          <div class="price-now-discount">50%</div>
-        </div>
-        <div class="price-before">250 €</div>
-      </div>
-  
-      <div class="select">
-        <img id="minus" src="images/icon-minus.svg" alt="" />
-        <div class="select-number"></div>
-        <img id='plus' src="images/icon-plus.svg" alt="" />
-      </div>
-  
-      <div class="cta">
-        <img src="images/icon-cart.svg" alt="" />
-        <p>Add to cart</p>
-      </div>
-  
-      <div class="attribution">
-        Codé par <a href="https://paulinedesmarets.fr/">Pauline Desmarets</a><br />
-        Design proposé par Frontend Mentor
-      </div>
-  
-    </div>
     <script src="app.js"></script>
   </body>
 </html>
