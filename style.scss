@@ -93,6 +93,12 @@ nav .right {
     padding: 60px 15px;
     color: $dark-grayish-blue;
     font-size: 18px;
+    background: linear-gradient($orange 0 0) bottom / var(--d, 0) 4px no-repeat;
+    transition: all 200ms ease-in-out;
+    &:hover {
+      --d: 100%;
+      color: $black;
+    }
   }
 }
 
@@ -186,9 +192,6 @@ section {
       display: none;
     }
   }
-  @include desktop {
-    position: static;
-  }
 }
 .gallery-mini {
   display: none;
@@ -198,7 +201,7 @@ section {
   img {
     width: 100%;
     margin-right: 5%;
-    border: $white 3px solid;
+    border: transparent 3px solid;
     filter: none;
     transition: all 200ms ease-in-out;
     &:last-child {
@@ -206,7 +209,11 @@ section {
     }
     &:hover {
       border: $orange 3px solid;
-      filter: opacity(40%);
+      filter: brightness(1.2);
+    }
+    &.active {
+      border: $orange 3px solid;
+      filter: brightness(1.1);
     }
   }
   @include desktop {
@@ -217,6 +224,46 @@ section {
   @include desktop {
     border-radius: 20px;
   }
+}
+
+// LIGTHBOX
+@include desktop {
+  .lightbox {
+    display: none;
+      background-color: #000000af;
+      position: absolute;
+      top: 0;
+      left: 0;
+      padding: 10% 25%;
+      width: 100%;
+      z-index: 9;
+      img{
+        border-radius: 20px;
+      }
+    }
+  }
+  .lightbox-close {
+      display: inline;
+      position: relative;
+      top: -30px;
+      left: 95%;
+      filter: brightness(100);
+      width: 25px;
+  }
+  .arrows-container {
+    &.lightbox{
+      display: flex;
+      justify-content: space-between;
+      align-content: center;
+      padding: 0px;
+      position: absolute;
+      top: 50%;
+      -ms-transform: translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);  
+      left: 50%;
+  
+    }
+
 }
 
 //DESCRIPTIF PRODUIT
@@ -309,7 +356,7 @@ h2 {
     padding: 15px;
     filter: none;
     transition: filter 200ms ease-in-out;
-    &:hover{
+    &:hover {
       filter: opacity(50%);
     }
   }
@@ -322,7 +369,7 @@ h2 {
   box-shadow: 0 20px 15px $pale-orange;
   filter: none;
   transition: filter 200ms ease-in-out;
-  &:hover{
+  &:hover {
     filter: opacity(50%);
   }
   img {
@@ -355,20 +402,20 @@ h2 {
   &.cart-icon {
     filter: none;
     transition: filter 300ms ease-in-out;
-    &:hover{
+    &:hover {
       filter: brightness(0%);
     }
   }
-  &.avatar{
+  &.avatar {
     border-radius: 500px;
     border: solid 2px $white;
     transition: border 200ms ease-in-out;
-    &:hover{
+    &:hover {
       border: solid 2px $orange;
     }
   }
 }
-.cart-bubble{
+.cart-bubble {
   z-index: 8;
   position: relative;
   right: -40px;

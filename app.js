@@ -10,15 +10,18 @@ closeMenu.addEventListener("click", () => {
 });
 
 //IMAGE GALLERY
-let mains = document.querySelectorAll(".main-img");
+let mains = document.querySelectorAll(".gallery-main-img");
+let minis = document.querySelectorAll('.gallery-mini img');
 let index = 0;
 function changeMain(n) {
+  minis[index].classList.remove('active');
   mains[index].classList.add("hidden");
   index = n;
   mains[index].classList.remove("hidden");
+  minis[index].classList.add('active');
 }
-let next = document.querySelector(".arrow-next");
-let previous = document.querySelector(".arrow-previous");
+let next = document.querySelector(".gallery-arrow-next");
+let previous = document.querySelector(".gallery-arrow-previous");
 next.addEventListener("click", () => {
   if (index < mains.length - 1) {
     mains[index].classList.add("hidden");
@@ -41,6 +44,44 @@ previous.addEventListener("click", () => {
     mains[index].classList.remove("hidden");
   }
 });
+
+//LIGHTBOX
+let lightboxMains = document.querySelectorAll(".main-img");
+let lightboxMinis = document.querySelectorAll('.gallery-mini img');
+let lightboxIndex = 0;
+function changeMain(n) {
+  lightboxMinis[lightboxIndex].classList.remove('active');
+  lightboxMains[lightboxIndex].classList.add("hidden");
+  lightboxIndex = n;
+  lightboxMains[lightboxIndex].classList.remove("hidden");
+  lightboxMinis[lightboxIndex].classList.add('active');
+}
+let lightboxNext = document.querySelector(".lightbox-arrow-next");
+let lightboxPrevious = document.querySelector(".lightbox-arrow-previous");
+lightboxNext.addEventListener("click", () => {
+  if (lightboxIndex < mains.length - 1) {
+    lightboxMains[lightboxIndex].classList.add("hidden");
+    lightboxIndex++;
+    lightboxMains[lightboxIndex].classList.remove("hidden");
+  } else {
+    lightboxMains[lightboxIndex].classList.add("hidden");
+    lightboxIndex = 0;
+    lightboxMains[lightboxIndex].classList.remove("hidden");
+  }
+});
+lightboxPrevious.addEventListener("click", () => {
+  if (index != 0) {
+    mains[index].classList.add("hidden");
+    index--;
+    mains[index].classList.remove("hidden");
+  } else {
+    mains[index].classList.add("hidden");
+    index = mains.length - 1;
+    mains[index].classList.remove("hidden");
+  }
+});
+
+
 
 //SHOW / HIDE CART
 let cartButtons = document.querySelectorAll(".open-cart");
