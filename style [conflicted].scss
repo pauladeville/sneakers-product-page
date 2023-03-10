@@ -230,13 +230,11 @@ section {
 // LIGTHBOX
 @include desktop {
   .lightbox {
-    position: fixed;
-    top: 0;
-    left: 100%;
-    opacity: 0;
-    transition: all 400ms ease-in-out;
+    display: none;
     background-color: #000000af;
     position: absolute;
+    top: 0;
+    left: 0;
     padding: 10% 25%;
     width: 100%;
     z-index: 9;
@@ -244,22 +242,17 @@ section {
       border-radius: 20px;
     }
     &.visible {
-      left: 0;
-      opacity: 100;
+      display: block;
     }
   }
   .lightbox-close {
     display: inline;
     position: relative;
     top: -30px;
-    left: 93%;
-    filter: saturate(0) brightness(1.6);
-    transition: 300ms filter ease-in-out;
+    left: 95%;
+    filter: brightness(100);
     width: 25px;
     cursor: pointer;
-    &:hover {
-      filter: none;
-    }
   }
   .lightbox-arrows-container {
     display: flex;
@@ -272,15 +265,6 @@ section {
     transform: translateX(-50%) translateY(-50%);
     left: 50%;
   }
-  .lightbox-arrow {
-    &:hover > img {
-      filter: none;
-    }
-    img {
-      filter: brightness(0);
-      transition: 300ms filter ease-in-out;
-    }
-  }
   .lightbox-main {
     position: relative;
     padding: 20px;
@@ -291,10 +275,6 @@ section {
         display: none;
       }
     }
-  }
-  .lightbox-mini {
-    padding: 0 10%;
-    margin: 5% 0;
   }
 }
 

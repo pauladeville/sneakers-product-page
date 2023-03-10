@@ -11,14 +11,14 @@ closeMenu.addEventListener("click", () => {
 
 //IMAGE GALLERY
 let mains = document.querySelectorAll(".gallery-main-img");
-let minis = document.querySelectorAll('.gallery-mini img');
+let minis = document.querySelectorAll(".gallery-mini img");
 let index = 0;
 function changeMain(n) {
-  minis[index].classList.remove('active');
+  minis[index].classList.remove("active");
   mains[index].classList.add("hidden");
   index = n;
   mains[index].classList.remove("hidden");
-  minis[index].classList.add('active');
+  minis[index].classList.add("active");
 }
 let next = document.querySelector(".gallery-arrow-next");
 let previous = document.querySelector(".gallery-arrow-previous");
@@ -46,15 +46,15 @@ previous.addEventListener("click", () => {
 });
 
 //LIGHTBOX
-let lightboxMains = document.querySelectorAll(".main-img");
-let lightboxMinis = document.querySelectorAll('.gallery-mini img');
+let lightboxMains = document.querySelectorAll(".lightbox-main-img");
+let lightboxMinis = document.querySelectorAll(".lightbox-mini img");
 let lightboxIndex = 0;
-function changeMain(n) {
-  lightboxMinis[lightboxIndex].classList.remove('active');
+function changeMainLightbox(n) {
+  lightboxMinis[lightboxIndex].classList.remove("active");
   lightboxMains[lightboxIndex].classList.add("hidden");
   lightboxIndex = n;
   lightboxMains[lightboxIndex].classList.remove("hidden");
-  lightboxMinis[lightboxIndex].classList.add('active');
+  lightboxMinis[lightboxIndex].classList.add("active");
 }
 let lightboxNext = document.querySelector(".lightbox-arrow-next");
 let lightboxPrevious = document.querySelector(".lightbox-arrow-previous");
@@ -71,24 +71,30 @@ lightboxNext.addEventListener("click", () => {
 });
 lightboxPrevious.addEventListener("click", () => {
   if (index != 0) {
-    mains[index].classList.add("hidden");
+    lightboxMains[index].classList.add("hidden");
     index--;
-    mains[index].classList.remove("hidden");
+    lightboxMains[index].classList.remove("hidden");
   } else {
-    mains[index].classList.add("hidden");
-    index = mains.length - 1;
-    mains[index].classList.remove("hidden");
+    lightboxMains[index].classList.add("hidden");
+    index = lightboxMains.length - 1;
+    lightboxMains[index].classList.remove("hidden");
   }
 });
-
-
+document.querySelector(".lightbox-close").addEventListener("click", () => {
+  document.querySelector(".lightbox").classList.remove("visible");
+});
+for (main of mains) {
+  main.addEventListener("click", () => {
+    document.querySelector(".lightbox").classList.add("visible");
+  });
+}
 
 //SHOW / HIDE CART
 let cartButtons = document.querySelectorAll(".open-cart");
 let cart = document.querySelector(".cart");
 for (cartButton of cartButtons) {
   cartButton.addEventListener("click", () => {
-    if (!cart.classList.contains("visible") && !cart.classList.contains('clickedAway')) {
+    if (!cart.classList.contains("visible") && !cart.classList.contains("clickedAway")) {
       cart.classList.add("visible");
       updateCart();
     }
@@ -97,13 +103,13 @@ for (cartButton of cartButtons) {
 
 document.addEventListener("mousedown", (event) => {
   //détecter si je clique en dehors du panier
-    if (!cart.contains(event.target) &&  cart.classList.contains("visible")) {
-      cart.classList.remove("visible");
-      cart.classList.add('clickedAway');
-      setInterval(() =>{
-        cart.classList.remove('clickedAway');
-      }, 500)
-    }  
+  if (!cart.contains(event.target) && cart.classList.contains("visible")) {
+    cart.classList.remove("visible");
+    cart.classList.add("clickedAway");
+    setInterval(() => {
+      cart.classList.remove("clickedAway");
+    }, 500);
+  }
 });
 
 //CHOSE AMOUNT
@@ -157,7 +163,7 @@ let fullCartRow = document.querySelector(".cart-content-full");
 function updateCart() {
   if (localStorage.amount) {
     emptyCartMsg.classList.add("hidden");
-    fullCartRow.classList.remove("hidden");  
+    fullCartRow.classList.remove("hidden");
     cartAmount.textContent = "x" + localStorage.amount;
     cartTotal.textContent = parseInt(localStorage.amount) * 125 + " €";
   } else {
@@ -172,18 +178,18 @@ deleteCart.addEventListener("click", () => {
 });
 
 //CREATE BUBBLE
-let cartBubble = document.createElement('div');
-function createBubble(){
-  document.querySelector('.right').prepend(cartBubble);
-  cartBubble.classList.add('cart-bubble');
-  cartBubble.textContent = localStorage.amount;  
-};
-function deleteBubble(){
+let cartBubble = document.createElement("div");
+function createBubble() {
+  document.querySelector(".right").prepend(cartBubble);
+  cartBubble.classList.add("cart-bubble");
+  cartBubble.textContent = localStorage.amount;
+}
+function deleteBubble() {
   cartBubble.remove();
-};
+}
 
-addEventListener('load', ()=>{
-  if(localStorage.amount){
+addEventListener("load", () => {
+  if (localStorage.amount) {
     createBubble();
   }
 });
