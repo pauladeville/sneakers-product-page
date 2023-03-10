@@ -228,6 +228,9 @@ section {
 }
 
 // LIGTHBOX
+.lightbox{
+  display: none;
+}
 @include desktop {
   .lightbox {
     position: fixed;
