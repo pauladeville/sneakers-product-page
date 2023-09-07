@@ -49,24 +49,21 @@ previous.addEventListener("click", () => {
 let lightboxMains = document.querySelectorAll(".lightbox-main-img");
 let lightboxMinis = document.querySelectorAll(".lightbox-mini img");
 let lightboxIndex = 0;
-function changeMainLightbox(n) {
-  lightboxMinis[lightboxIndex].classList.remove("active");
-  lightboxMains[lightboxIndex].classList.add("hidden");
-  lightboxIndex = n;
-  lightboxMains[lightboxIndex].classList.remove("hidden");
-  lightboxMinis[lightboxIndex].classList.add("active");
-}
 let lightboxNext = document.querySelector(".lightbox-arrow-next");
 let lightboxPrevious = document.querySelector(".lightbox-arrow-previous");
 lightboxNext.addEventListener("click", () => {
   if (lightboxIndex < mains.length - 1) {
     lightboxMains[lightboxIndex].classList.add("hidden");
+    lightboxMinis[lightboxIndex].classList.remove("active");
     lightboxIndex++;
     lightboxMains[lightboxIndex].classList.remove("hidden");
+    lightboxMinis[lightboxIndex].classList.add("active");
   } else {
     lightboxMains[lightboxIndex].classList.add("hidden");
+    lightboxMinis[lightboxIndex].classList.remove("active");
     lightboxIndex = 0;
     lightboxMains[lightboxIndex].classList.remove("hidden");
+    lightboxMinis[lightboxIndex].classList.add("active");
   }
 });
 lightboxPrevious.addEventListener("click", () => {

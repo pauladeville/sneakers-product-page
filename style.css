@@ -3,7 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   font-family: "Kumbh Sans", serif;
-  color: hsl(220deg, 13%, 13%);
+  color: hsl(220, 13%, 13%);
 }
 
 @media screen and (min-width: 900px) {
@@ -21,7 +21,7 @@ nav {
 @media screen and (min-width: 900px) {
   nav {
     padding: 0 0 0 0;
-    border-bottom: solid 1px hsl(220deg, 14%, 75%);
+    border-bottom: solid 1px hsl(220, 14%, 75%);
   }
 }
 
@@ -73,9 +73,9 @@ nav .right {
   align-items: center;
   text-decoration: none;
   padding: 60px 15px;
-  color: hsl(219deg, 9%, 45%);
+  color: hsl(219, 9%, 45%);
   font-size: 18px;
-  background: linear-gradient(hsl(26deg, 100%, 55%) 0 0) bottom/var(--d, 0) 4px no-repeat;
+  background: linear-gradient(hsl(26, 100%, 55%) 0 0) bottom/var(--d, 0) 4px no-repeat;
   transition: all 200ms ease-in-out;
 }
 .desktop-menu a:hover {
@@ -85,7 +85,7 @@ nav .right {
 
 #hamburger-menu {
   z-index: 9 !important;
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
   position: fixed;
   top: 0;
   left: -70%;
@@ -111,7 +111,7 @@ nav .right {
   transition: color 200ms ease-in-out;
 }
 #hamburger-menu a:hover {
-  color: hsl(26deg, 100%, 55%);
+  color: hsl(26, 100%, 55%);
 }
 
 #hamburger-open {
@@ -156,7 +156,6 @@ nav .right {
   padding: 20px;
   position: absolute;
   top: 50%;
-  -ms-transform: translateY(-50%);
   transform: translateY(-50%);
 }
 @media screen and (min-width: 900px) {
@@ -166,7 +165,7 @@ nav .right {
 }
 
 .arrow {
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
   display: inline-block;
   border-radius: 500px;
 }
@@ -193,6 +192,7 @@ nav .right {
   align-items: center;
 }
 .mini img {
+  cursor: pointer;
   width: 100%;
   margin-right: 5%;
   border: transparent 3px solid;
@@ -203,11 +203,11 @@ nav .right {
   margin-right: 0;
 }
 .mini img:hover {
-  border: hsl(26deg, 100%, 55%) 3px solid;
+  border: hsl(26, 100%, 55%) 3px solid;
   filter: brightness(1.2);
 }
 .mini img.active {
-  border: hsl(26deg, 100%, 55%) 3px solid;
+  border: hsl(26, 100%, 55%) 3px solid;
   filter: brightness(1.1);
 }
 @media screen and (min-width: 900px) {
@@ -228,15 +228,18 @@ nav .right {
 
 @media screen and (min-width: 900px) {
   .lightbox {
-    position: fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     top: 0;
     left: 100%;
     opacity: 0;
     transition: all 400ms ease-in-out;
     background-color: rgba(0, 0, 0, 0.6862745098);
     position: absolute;
-    padding: 10% 25%;
+    padding: 5% 30%;
     width: 100%;
+    height: 100vh;
     z-index: 9;
   }
   .lightbox img {
@@ -248,12 +251,12 @@ nav .right {
   }
   .lightbox-close {
     display: inline;
-    position: relative;
-    top: -30px;
-    left: 93%;
+    position: fixed;
+    top: 10%;
+    left: 90%;
     filter: saturate(0) brightness(1.6);
     transition: 300ms filter ease-in-out;
-    width: 25px;
+    width: 30px;
     cursor: pointer;
   }
   .lightbox-close:hover {
@@ -266,12 +269,12 @@ nav .right {
     padding: 0px;
     position: absolute;
     top: 50%;
-    -ms-transform: translateY(-50%);
     transform: translateX(-50%) translateY(-50%);
     left: 50%;
   }
   .lightbox-arrow:hover > img {
     filter: none;
+    cursor: pointer;
   }
   .lightbox-arrow img {
     filter: brightness(0);
@@ -289,8 +292,29 @@ nav .right {
     display: none;
   }
   .lightbox-mini {
-    padding: 0 10%;
+    padding: 0 5%;
     margin: 5% 0;
+    display: none;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .lightbox-mini img {
+    width: 100%;
+    margin-right: 5%;
+    border: transparent 3px solid;
+    transition: all 200ms ease-in-out;
+  }
+  .lightbox-mini img:last-child {
+    margin-right: 0;
+  }
+  .lightbox-mini img.active {
+    border: hsl(26, 100%, 55%) 3px solid;
+    filter: brightness(1.1);
+  }
+}
+@media screen and (min-width: 900px) and (min-width: 900px) {
+  .lightbox-mini {
+    display: flex;
   }
 }
 .text-container {
@@ -304,7 +328,7 @@ nav .right {
 }
 
 h3 {
-  color: hsl(26deg, 100%, 55%);
+  color: hsl(26, 100%, 55%);
   text-transform: uppercase;
   font-size: 12px;
   letter-spacing: 2px;
@@ -326,7 +350,7 @@ h2 {
 }
 
 .description {
-  color: hsl(219deg, 9%, 45%);
+  color: hsl(219, 9%, 45%);
   line-height: 24px;
   font-size: 16px;
 }
@@ -363,8 +387,8 @@ h2 {
   }
 }
 .price-now-discount {
-  background-color: hsl(25deg, 100%, 94%);
-  color: hsl(26deg, 100%, 55%);
+  background-color: hsl(25, 100%, 94%);
+  color: hsl(26, 100%, 55%);
   font-weight: 700;
   padding: 5px 10px;
   border-radius: 10px;
@@ -372,7 +396,7 @@ h2 {
 .price-before {
   font-weight: 700;
   text-decoration: line-through;
-  color: hsl(220deg, 14%, 75%);
+  color: hsl(220, 14%, 75%);
   font-size: 18px;
 }
 
@@ -386,7 +410,7 @@ h2 {
 .select {
   padding: 10px;
   justify-content: space-between;
-  background-color: hsl(223deg, 64%, 98%);
+  background-color: hsl(223, 64%, 98%);
   margin-bottom: 15px;
 }
 .select-number {
@@ -405,9 +429,9 @@ h2 {
 .cta {
   padding: 20px;
   cursor: pointer;
-  background-color: hsl(26deg, 100%, 55%);
+  background-color: hsl(26, 100%, 55%);
   justify-content: center;
-  box-shadow: 0 20px 15px hsl(25deg, 100%, 94%);
+  box-shadow: 0 20px 15px hsl(25, 100%, 94%);
   filter: none;
   transition: filter 200ms ease-in-out;
 }
@@ -420,7 +444,7 @@ h2 {
 }
 .cta p {
   font-weight: 700;
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
 }
 
 @media screen and (min-width: 900px) {
@@ -450,11 +474,11 @@ h2 {
 }
 .open-cart.avatar {
   border-radius: 500px;
-  border: solid 2px hsl(0deg, 0%, 100%);
+  border: solid 2px hsl(0, 0%, 100%);
   transition: border 200ms ease-in-out;
 }
 .open-cart.avatar:hover {
-  border: solid 2px hsl(26deg, 100%, 55%);
+  border: solid 2px hsl(26, 100%, 55%);
 }
 
 .cart-bubble {
@@ -462,11 +486,11 @@ h2 {
   position: relative;
   right: -40px;
   top: -10px;
-  background-color: hsl(26deg, 100%, 55%);
+  background-color: hsl(26, 100%, 55%);
   width: 22px;
   height: 15px;
   border-radius: 50px;
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
   font-weight: 700;
   font-size: 12px;
   text-align: center;
@@ -479,7 +503,7 @@ h2 {
   transform: translateX(-50%);
   top: -100%;
   width: 95%;
-  background-color: hsl(0deg, 0%, 100%);
+  background-color: hsl(0, 0%, 100%);
   border-radius: 10px;
   box-shadow: 0 20px 20px rgba(0, 0, 0, 0.2431372549);
   transition: top 600ms ease-in-out;
@@ -494,7 +518,7 @@ h2 {
 .cart-title {
   padding: 25px;
   font-weight: 700;
-  border-bottom: solid 1px hsl(220deg, 14%, 75%);
+  border-bottom: solid 1px hsl(220, 14%, 75%);
 }
 .cart-content {
   padding: 30px;
@@ -502,7 +526,7 @@ h2 {
 .cart-content-empty {
   margin: 80px 0;
   font-weight: 700;
-  color: hsl(219deg, 9%, 45%);
+  color: hsl(219, 9%, 45%);
   text-align: center;
 }
 .cart-content-empty.hidden {
@@ -527,11 +551,11 @@ h2 {
 .cart-content-full #checkout {
   padding: 20px;
   cursor: pointer;
-  background-color: hsl(26deg, 100%, 55%);
+  background-color: hsl(26, 100%, 55%);
   justify-content: center;
-  box-shadow: 0 20px 15px hsl(25deg, 100%, 94%);
+  box-shadow: 0 20px 15px hsl(25, 100%, 94%);
   border-radius: 10px;
-  color: hsl(0deg, 0%, 100%);
+  color: hsl(0, 0%, 100%);
   font-weight: 700;
   text-align: center;
   margin-top: 25px;
@@ -559,9 +583,7 @@ h2 {
 }
 
 .attribution a {
-  color: hsl(26deg, 100%, 55%);
+  color: hsl(26, 100%, 55%);
   font-weight: 700;
   text-decoration: none;
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
